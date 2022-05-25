@@ -18,6 +18,7 @@ let transections = [];
 
 fetch("log.json").then(res => {return res.json();}).then(data => {
     transections = data.transection
+    init();
 });
 
 function init(){
@@ -25,8 +26,6 @@ function init(){
     transections.forEach(ft_addDataToList);
     cal_Money();
 }
-
-init();
 
 function ft_addDataToList(transections){
     const txt = transections.text;
@@ -37,7 +36,6 @@ function ft_addDataToList(transections){
     li.innerHTML = `${txt} <span>${symbol}${nb_Format.format(amount)}</span><button class="btn-del" onclick="ft_delTransection(${transections.id})">x</button>`
     symbol == "+" ?li.classList.add("income") :li.classList.add("expense");
     ls.appendChild(li);
-    console.log(ls);
 }
 
 function cal_Money(){
@@ -85,5 +83,3 @@ function ft_delTransection(id){
 }
 
 frm.addEventListener("submit", ft_addTransaction);
-
-init();
