@@ -14,12 +14,18 @@ const nb_Format = new Intl.NumberFormat('en-US', {
 
 //------------------------------------------------------------------
 
-let transections = [];
+let transections = [
+    {id:1,text:"ค่าอาหารเช้า",amount:-180},
+    {id:2,text:"ค่าอาหารแมว",amount:-580},
+    {id:3,text:"เงินเดือน",amount:25000},
+    {id:4,text:"ค่าผ่อนบ้าน",amount:-9000},
+    {id:5,text:"ค่าเกม",amount:-1860}
+];
 
-fetch("log.json").then(res => {return res.json();}).then(data => {
+/*fetch("log.json").then(res => {return res.json();}).then(data => {
     transections = data.transection
     init();
-});
+});*/
 
 function init(){
     list.innerHTML = "";
@@ -83,3 +89,5 @@ function ft_delTransection(id){
 }
 
 frm.addEventListener("submit", ft_addTransaction);
+
+init();
